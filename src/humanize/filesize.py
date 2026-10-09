@@ -77,7 +77,8 @@ def naturalsize(
         format (str): Custom formatter.
 
     Returns:
-        str: Human readable representation of a filesize.
+        str: Human readable representation of a filesize. Non-finite values
+            return ``NaN``, ``+Inf``, or ``-Inf`` without a filesize suffix.
     """
     if gnu:
         suffix = suffixes["gnu"]
@@ -88,6 +89,12 @@ def naturalsize(
 
     base = 1024 if (gnu or binary) else 1000
     bytes_ = float(value)
+    from math import isfinite
+
+    if not isfinite(bytes_):
+        from humanize.number import _format_not_finite
+
+        return _format_not_finite(bytes_)
     abs_bytes = abs(bytes_)
 
     if abs_bytes == 1 and not gnu:

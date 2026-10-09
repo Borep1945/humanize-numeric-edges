@@ -1,0 +1,12 @@
+{
+  "url": "https://github.com/python-humanize/humanize",
+  "license": "LICENCE",
+  "description": "Return existing NaN, +Inf and -Inf formatting for non-finite sizes, before choosing a suffix. Preserve finite formatting and all suffix modes. Add 19 regression cases.",
+  "tests": "875 passed; translations compiled; benchmark timing disabled; Ruff passed for changed files",
+  "files": [
+    "src/humanize/filesize.py",
+    "tests/test_filesize.py"
+  ],
+  "upstream_sha": "785e5dcc0d0308ad0dff3f6cc0faa7085ad0375b",
+  "published_fork": "https://github.com/Borep1945/humanize-numeric-edges"
+}
